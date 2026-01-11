@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Praktikum @ Orgadata</title>
+    <title>Mein Orgadata Praktikum</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght=400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
@@ -19,42 +21,83 @@
 </nav>
 
 <header id="home" class="hero">
-    <h1>Meine Zeit bei Orgadata</h1>
-    <p>Ein Einblick in die Welt der IT-Beratung und Digitalisierung.</p>
+    <div class="hero-content">
+        <h1>Meine Zeit bei <span>Orgadata</span></h1>
+        <p class="subtitle">Wertvolle Einblicke in die IT-Beratung und Digitalisierung.</p>
+        <a href="#details" class="btn-primary">Mehr erfahren <i class="fas fa-chevron-down"></i></a>
+    </div>
 </header>
 
 <div class="container">
-    <section id="details" class="content-section">
-        <h2>Über das Praktikum</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Der Ablauf</h3>
-                <p>Mein Praktikum war gut strukturiert und abwechslungsreich. Von der Analyse bis zur Umsetzung war alles dabei.</p>
+    <section id="details" class="section-padded">
+        <h2 class="section-title">Über das Praktikum</h2>
+        <div class="grid-2-cols">
+            <div class="text-block">
+                <h3>Einblicke & Technologien</h3>
+                <p>In meinem Praktikum bei Orgadata habe ich wertvolle Einblicke in die IT-Beratung erhalten. Ich durfte aktiv an Projekten mitarbeiten, neue Technologien kennenlernen und meine Fähigkeiten in der Praxis erweitern.</p>
+                <p>Besonders spannend war die Arbeit mit modernen Softwarelösungen und der direkte Austausch im Team. Das Praktikum bot eine ideale Brücke zwischen Theorie und praktischer Anwendung.</p>
             </div>
-            <div class="card">
-                <h3>Zielgruppe</h3>
-                <p>Perfekt für alle, die sich für IT-Consulting und innovative Softwarelösungen begeistern.</p>
+            <div class="image-block">
+                <img src="https://via.placeholder.com/600x400/FF8C00/FFFFFF?text=Teamarbeit+und+Projekte" alt="Teamarbeit und Projekte bei Orgadata" class="section-image">
+            </div>
+        </div>
+
+        <div class="callout">
+            <h3>Für wen ist das Praktikum geeignet?</h3>
+            <p>Dieses Praktikum richtet sich an alle, die Interesse an IT, Digitalisierung und innovativen Lösungen haben. Besonders geeignet ist es für Studierende oder Berufseinsteiger:innen, die praktische Erfahrung sammeln und ihr Wissen vertiefen möchten.</p>
+        </div>
+    </section>
+
+    <section id="how-it-was" class="section-padded bg-dark-secondary">
+        <h2 class="section-title">Wie lief das Praktikum ab?</h2>
+        <div class="grid-2-cols reverse-grid">
+            <div class="image-block">
+                <img src="https://via.placeholder.com/600x400/555555/FFFFFF?text=Strukturierter+Ablauf" alt="Strukturierter Praktikumsablauf" class="section-image">
+            </div>
+            <div class="text-block">
+                <h3>Struktur & Abwechslung</h3>
+                <p>Mein Praktikum war gut strukturiert und abwechslungsreich. Ich habe an verschiedenen Aufgaben gearbeitet, von der Analyse bis zur Umsetzung von Projekten. Das Team war unterstützend und hat mir viel Raum zum Lernen gegeben.</p>
+                <p>Die klare Struktur half mir, mich schnell einzufinden, während die Vielfalt der Aufgaben dafür sorgte, dass es nie langweilig wurde und ich unterschiedlichste Facetten der IT-Beratung kennenlernen konnte.</p>
             </div>
         </div>
     </section>
 
-    <section id="learning" class="content-section">
-        <h2>Was ich gelernt habe</h2>
-        <ul class="skill-list">
-            <li>Praktische IT-Consulting-Methoden</li>
-            <li>Umgang mit modernen Softwaretools</li>
-            <li>Professionelle Team-Kommunikation</li>
-        </ul>
+    <section id="learning" class="section-padded">
+        <h2 class="section-title">Was ich gelernt habe</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <i class="fas fa-desktop icon-large"></i>
+                <h3>IT-Consulting Methoden</h3>
+                <p>Praktische Anwendung und Verfeinerung von Beratungsmethoden.</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-tools icon-large"></i>
+                <h3>Digitale Tools & Software</h3>
+                <p>Effizienter Umgang mit branchenüblichen Softwarelösungen.</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-users icon-large"></i>
+                <h3>Teamarbeit & Kommunikation</h3>
+                <p>Zusammenarbeit und professionelle Kommunikation im Team.</p>
+            </div>
+        </div>
+        <div class="recommendation-box">
+            <h3>Warum ich das Praktikum empfehlen kann</h3>
+            <p>Das Praktikum bietet eine einzigartige Gelegenheit, Theorie mit Praxis zu verbinden und wertvolle Kontakte in der Branche zu knüpfen. Wer sich für digitale Innovationen begeistert, wird hier viel mitnehmen können.</p>
+            <img src="https://via.placeholder.com/600x300/FF8C00/FFFFFF?text=Empfehlung+Orgadata" alt="Empfehlung für Orgadata Praktikum" class="section-image recommendation-image">
+        </div>
     </section>
 
-    <section id="contact" class="content-section">
-        <div class="contact-card">
-            <h2>Kontakt</h2>
-            <p>Hast du Fragen zu meinem Praktikumsbericht?</p>
-            <a href="mailto:deine-email@beispiel.de" class="btn">Schreib mir eine Mail</a>
-        </div>
+    <section id="contact" class="section-padded bg-dark-secondary text-center">
+        <h2 class="section-title">Kontakt & Fragen</h2>
+        <p>Möchtest du mehr über meine Erfahrungen bei Orgadata erfahren oder hast du spezifische Fragen?</p>
+        <a href="mailto:deine-email@beispiel.de" class="btn-primary large-btn">Direkt kontaktieren <i class="fas fa-envelope"></i></a>
     </section>
 </div>
+
+<footer>
+    <p>&copy; 2024 Praktikumsbericht | Erstellt für mein Portfolio</p>
+</footer>
 
 <script src="script.js"></script>
 </body>
