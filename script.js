@@ -22,13 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Navbar-Hintergrund beim Scrollen anpassen (schon vorher da, leicht angepasst)
+    // Navbar-Hintergrund beim Scrollen anpassen
     const navbar = document.querySelector('.navbar');
     const heroSection = document.getElementById('home');
-    const heroHeight = heroSection ? heroSection.offsetHeight : 0; // Höhe der Hero-Sektion
+    const heroHeight = heroSection ? heroSection.offsetHeight : 0;
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > (heroHeight / 2)) { // Navbar wird dunkler, wenn man die Hälfte der Hero-Sektion durch ist
+        if (window.scrollY > (heroHeight / 2)) {
             navbar.style.backgroundColor = 'rgba(0,0,0,0.95)';
             navbar.style.boxShadow = '0 2px 15px rgba(0,0,0,0.6)';
         } else {
