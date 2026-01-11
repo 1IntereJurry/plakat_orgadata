@@ -1,17 +1,91 @@
 :root {
-    --primary: #ff8c00;
-    --dark: #2c3e50;
-    --grey: #7f8c8d;
-    --light: #ecf0f1;
-    --white: #ffffff;
+    --primary-orange: #ff8c00;
+    --dark-bg: #1a1a1a;
+    --dark-secondary-bg: #2a2a2a;
+    --text-light: #f0f0f0;
+    --text-grey: #cccccc;
+    --accent-grey: #444444;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
     margin: 0;
-    background-color: var(--light);
-    color: var(--dark);
+    background-color: var(--dark-bg);
+    color: var(--text-light);
     scroll-behavior: smooth;
+}
+
+/* Global Elements */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padded {
+    padding: 80px 0;
+}
+
+.bg-dark-secondary {
+    background-color: var(--dark-secondary-bg);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    color: var(--primary-orange);
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-orange);
+    border-radius: 2px;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-light);
+}
+
+p {
+    color: var(--text-grey);
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary-orange);
+    color: var(--dark-bg);
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: 2px solid var(--primary-orange);
+}
+
+.btn-primary:hover {
+    background-color: #e67e22; /* Slightly darker orange */
+    transform: translateY(-2px);
+}
+
+.btn-primary.large-btn {
+    padding: 15px 40px;
+    font-size: 1.1rem;
 }
 
 /* Navbar */
@@ -20,95 +94,244 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 5%;
-    background: var(--white);
+    background: var(--dark-bg);
     position: sticky;
     top: 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.4);
     z-index: 1000;
+    transition: padding 0.3s ease, background-color 0.3s ease;
 }
 
 .nav-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-light);
 }
 
 .nav-logo span {
-    color: var(--primary);
+    color: var(--primary-orange);
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: var(--dark);
-    font-weight: 500;
-    transition: color 0.3s;
+    color: var(--text-grey);
+    font-weight: 400;
+    transition: color 0.3s ease;
+    position: relative;
 }
 
-.nav-links a:hover {
-    color: var(--primary);
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary-orange);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: var(--primary-orange);
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, var(--dark) 0%, #444 100%);
-    color: var(--white);
-    padding: 100px 20px;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1600x800/222222/FFFFFF?text=Orgadata+Hintergrund') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    color: var(--white);
+    position: relative;
 }
 
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
+.hero-content h1 {
+    font-size: 4.5rem;
+    margin-bottom: 10px;
+    line-height: 1.1;
 }
 
-.content-section {
-    padding: 60px 0;
+.hero-content h1 span {
+    color: var(--primary-orange);
 }
 
-.grid {
+.hero-content .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    color: var(--text-light);
+}
+
+/* Grid Layouts */
+.grid-2-cols {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
 }
 
-.card {
-    background: var(--white);
-    padding: 20px;
+.grid-2-cols.reverse-grid {
+    grid-template-areas: "image text";
+}
+
+.reverse-grid .text-block { grid-area: text; }
+.reverse-grid .image-block { grid-area: image; }
+
+
+.text-block h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--primary-orange);
+}
+
+.image-block img {
+    max-width: 100%;
+    height: auto;
     border-radius: 12px;
-    border-top: 4px solid var(--primary);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
-.skill-list li {
-    background: var(--white);
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 8px;
-    list-style: none;
-    border-left: 5px solid var(--primary);
-}
-
-.contact-card {
-    background: var(--primary);
-    color: white;
+/* Callout Box */
+.callout {
+    background-color: var(--accent-grey);
     padding: 40px;
+    border-radius: 12px;
+    margin-top: 60px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.callout h3 {
+    color: var(--primary-orange);
+    margin-top: 0;
+    font-size: 1.8rem;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.skill-item {
+    background-color: var(--dark-secondary-bg);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-10px);
+    background-color: var(--accent-grey);
+}
+
+.icon-large {
+    font-size: 3.5rem;
+    color: var(--primary-orange);
+    margin-bottom: 20px;
+}
+
+.skill-item h3 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+/* Recommendation Box */
+.recommendation-box {
+    background-color: var(--primary-orange);
+    color: var(--dark-bg);
+    padding: 50px;
     border-radius: 15px;
     text-align: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
 }
 
-.btn {
-    display: inline-block;
-    background: var(--white);
-    color: var(--primary);
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 25px;
-    font-weight: bold;
-    margin-top: 20px;
+.recommendation-box h3 {
+    color: var(--dark-bg);
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+}
+
+.recommendation-box p {
+    font-size: 1.1rem;
+    color: var(--dark-bg);
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+}
+
+.recommendation-image {
+    max-width: 80%; /* Smaller image in this box */
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-bg);
+    color: var(--text-grey);
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid var(--accent-grey);
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem 20px;
+    }
+    .nav-links {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    .hero-content .subtitle {
+        font-size: 1.2rem;
+    }
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+    .grid-2-cols {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .grid-2-cols.reverse-grid {
+        grid-template-areas: unset; /* Reset for mobile */
+    }
+    .recommendation-box {
+        padding: 30px;
+    }
+    .recommendation-box h3 {
+        font-size: 1.8rem;
+    }
+    .skill-item {
+        padding: 20px;
+    }
 }
