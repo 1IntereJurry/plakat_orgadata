@@ -1,9 +1,10 @@
 :root {
-    --bg-dark: #121212;       /* Sehr dunkler Hintergrund */
-    --card-bg: #1e1e1e;       /* Etwas helleres Grau für die Module */
+    --bg-body: #0f0f11;       /* Fast Schwarz */
+    --bg-card: #1a1a1d;       /* Dunkles Anthrazit */
     --primary: #ff8c00;       /* Orgadata Orange */
-    --text-white: #ffffff;
-    --text-grey: #b0b0b0;
+    --text-main: #ffffff;
+    --text-muted: #a0a0a0;
+    --radius: 24px;           /* Starke Rundungen für modernen Look */
 }
 
 * {
@@ -13,179 +14,202 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-white);
-    line-height: 1.6;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    padding: 20px;
 }
 
-/* --- Navigation --- */
-.navbar {
+.main-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Header --- */
+header {
     display: flex;
     justify-content: space-between;
-    padding: 1.5rem 5%;
-    background: rgba(18, 18, 18, 0.95);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid #333;
-    backdrop-filter: blur(10px);
+    align-items: center;
+    padding: 20px 0 40px 0;
 }
 
-.logo { font-weight: 800; font-size: 1.2rem; }
-.highlight { color: var(--primary); }
-
-.nav-links { list-style: none; display: flex; gap: 20px; }
-.nav-links a { text-decoration: none; color: var(--text-white); font-weight: 600; }
-.nav-links a:hover { color: var(--primary); }
-
-/* --- Hero --- */
-.hero {
-    text-align: center;
-    padding: 80px 20px;
-    background: radial-gradient(circle at center, #2a2a2a 0%, var(--bg-dark) 70%);
-}
-.hero h1 { font-size: 3rem; margin-bottom: 10px; }
-.text-gradient {
-    background: linear-gradient(90deg, #ff8c00, #ffb347);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
 }
 
-/* --- Layout Container --- */
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Abstand zwischen den Modulen */
+.orange { color: var(--primary); }
+.white { color: #fff !important; }
+
+.contact-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    transition: 0.3s;
 }
 
-/* --- Die Module (Karten) --- */
-.module {
-    background-color: var(--card-bg);
-    border-radius: 16px;
-    overflow: hidden; /* Damit Bilder nicht überstehen */
-    border: 1px solid #333;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
+.contact-btn:hover {
+    background: var(--primary);
 }
 
-.module:hover {
-    border-color: var(--primary);
-}
-
-/* Modul-Typen */
-.module-full {
-    padding: 40px;
-}
-
-.module-split {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-}
-
-/* Bild und Text Bereich im Split-Modul */
-.module-split .card-content {
-    flex: 1;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.module-split .card-image {
-    flex: 1;
-    min-height: 300px;
-}
-
-.module-split .card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* Umdrehen (Bild links, Text rechts vs andersrum) */
-.module-reverse {
-    flex-direction: row-reverse;
-}
-
-/* Grid Modul (3 Karten nebeneinander) */
-.module-grid {
+/* --- Bento Grid System --- */
+.bento-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    background: transparent; /* Kein Hintergrund für den Container */
-    border: none;
-    box-shadow: none;
+    /* 4 Spalten auf Desktop */
+    grid-template-columns: repeat(4, 1fr); 
+    /* Automatische Zeilenhöhe, mindestens 200px */
+    grid-auto-rows: minmax(220px, auto); 
     gap: 20px;
 }
 
-.card-small {
-    background: var(--card-bg);
+/* --- Karten Basis --- */
+.card {
+    background-color: var(--bg-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-color: rgba(255, 140, 0, 0.3);
+}
+
+/* --- Grid Helfer-Klassen (Span) --- */
+.span-1 { grid-column: span 1; }
+.span-2 { grid-column: span 2; }
+.span-3 { grid-column: span 3; }
+.span-4 { grid-column: span 4; }
+.row-2 { grid-row: span 2; }
+
+/* --- Karten Inhalt --- */
+.card-content {
     padding: 30px;
-    border-radius: 16px;
-    border: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    z-index: 2;
+}
+
+.card-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
     text-align: center;
 }
 
-.card-small:hover { transform: translateY(-5px); border-color: var(--primary); }
+/* Typografie in Karten */
+.card h1 { font-size: 2.5rem; line-height: 1.1; margin: 10px 0; }
+.card h3 { font-size: 1.4rem; margin-bottom: 10px; font-weight: 600; }
+.card p { color: var(--text-muted); line-height: 1.5; }
 
-/* Highlight Modul (Fazit) */
-.module-highlight {
-    background: linear-gradient(135deg, var(--primary) 0%, #e67e22 100%);
-    color: #121212;
-}
-.module-highlight h2, .module-highlight p { color: #121212; }
-.module-highlight .btn {
-    background: #121212;
-    color: white;
-}
-
-/* --- Elemente --- */
-h2 { color: var(--text-white); margin-bottom: 15px; font-size: 1.8rem; }
-p { color: var(--text-grey); margin-bottom: 15px; }
-.module-highlight p { color: #000; font-weight: 500; }
-
-.icon-orange { color: var(--primary); margin-right: 10px; }
-.branch-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; display: block; }
-
-.check-list { list-style: none; }
-.check-list li { margin-bottom: 8px; }
-.check-list li::before { content: "✔"; color: var(--primary); margin-right: 10px; }
-
-.btn {
-    display: inline-block;
-    padding: 10px 25px;
-    background: var(--primary);
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    margin-top: 10px;
+.tag {
+    background: rgba(255, 140, 0, 0.2);
+    color: var(--primary);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    align-self: flex-start;
+    text-transform: uppercase;
 }
 
-.center-text { text-align: center; }
+/* --- Spezielle Karten Styles --- */
 
-/* Animation Klassen */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+/* Bilder Karten */
+.image-card {
+    padding: 0;
+}
+.image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.image-card:hover img {
+    transform: scale(1.05);
+}
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    padding: 30px;
+    pointer-events: none;
 }
 
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+/* Farbige Karten */
+.bg-gradient {
+    background: linear-gradient(145deg, #2a2a2e 0%, #1a1a1d 100%);
+}
+.bg-gradient-reverse {
+    background: linear-gradient(145deg, #1a1a1d 0%, #2a2a2e 100%);
+}
+.bg-orange {
+    background-color: var(--primary);
 }
 
-/* Mobile Anpassung */
-@media (max-width: 768px) {
-    .module-split { flex-direction: column; }
-    .module-reverse { flex-direction: column; }
-    .hero h1 { font-size: 2rem; }
-    .navbar { flex-direction: column; gap: 10px; text-align: center; }
-    .nav-links { justify-content: center; font-size: 0.9rem; }
+/* Icons */
+.icon-huge { font-size: 3rem; margin-bottom: 15px; }
+.icon-corner {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    font-size: 8rem;
+    color: rgba(255, 255, 255, 0.03);
+    transform: rotate(-15deg);
+}
+
+/* Listen und Tags */
+.task-list { list-style: none; margin-top: auto; }
+.task-list li { margin-bottom: 10px; color: var(--text-muted); }
+.task-list i { margin-right: 10px; }
+
+.tags-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+.pill { 
+    background: #333; 
+    padding: 5px 10px; 
+    border-radius: 6px; 
+    font-size: 0.85rem; 
+    border: 1px solid #444;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* --- Responsive (Mobile) --- */
+@media (max-width: 900px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 Spalten auf Tablet */
+    }
+}
+
+@media (max-width: 600px) {
+    .bento-grid {
+        grid-template-columns: 1fr; /* 1 Spalte auf Handy */
+        grid-auto-rows: auto;
+    }
+    
+    .span-2, .span-3, .span-4, .row-2 {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+    
+    .card { min-height: 200px; }
+    .image-card { min-height: 300px; }
 }
