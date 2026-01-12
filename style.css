@@ -213,3 +213,8 @@ footer {
     .card { min-height: 200px; }
     .image-card { min-height: 300px; }
 }
+
+.card {
+    opacity: 1 !important;
+    transform: none !important;
+}
