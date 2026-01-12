@@ -15,5 +15,3 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.fade-in').forEach(el => {
     observer.observe(el);
 });
-
-console.log("Modular Design geladen.");
