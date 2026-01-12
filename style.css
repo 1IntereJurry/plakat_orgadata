@@ -217,27 +217,3 @@ footer { text-align: center; padding: 60px; color: #444; font-size: 0.8rem; }
     box-shadow: 0 8px 32px rgba(0,0,0,0.3);
     z-index: 10;
 }
-
-/* Standardmäßig (PC/Tablet) wird der Umbruch ignoriert */
-.mobile-only-break {
-    display: none;
-}
-
-/* Nur auf kleinen Bildschirmen (Handy) wird der Umbruch aktiviert */
-@media (max-width: 600px) {
-    .mobile-only-break {
-        display: block;
-        content: ""; 
-        height: 0;
-        width: 100%; 
-    }
-
-    .tags-container {
-        display: block; 
-    }
-
-    .pill {
-        display: inline-block;
-        margin-bottom: 8px; 
-    }
-}
