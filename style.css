@@ -98,3 +98,62 @@ footer { text-align: center; padding: 60px; color: #444; font-size: 0.8rem; }
     .bento-grid { grid-template-columns: 1fr; }
     .span-2, .row-2 { grid-column: span 1; grid-row: span 1; }
 }
+/* Helferklasse für 4 Spalten */
+.span-4 { 
+    grid-column: span 4; 
+}
+
+/* Spezielles Layout für die breite Kontaktkarte */
+.contact-full .card-content {
+    padding: 40px;
+}
+
+.contact-flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.contact-text {
+    flex: 2;
+}
+
+.contact-action {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.mail-btn.large {
+    width: 100%;
+    max-width: 250px;
+    padding: 18px;
+    font-size: 1rem;
+    margin-top: 0; /* Entfernt den oberen Abstand im Flex-Layout */
+}
+
+/* Responsive: Auf dem Handy untereinander stapeln */
+@media (max-width: 800px) {
+    .span-4 {
+        grid-column: span 2; /* Auf Tablets über 2 Spalten */
+    }
+    .contact-flex-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .contact-action {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    .mail-btn.large {
+        max-width: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .span-4 {
+        grid-column: span 1; /* Auf dem Handy volle Breite der einen Spalte */
+    }
+}
