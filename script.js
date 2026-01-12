@@ -1,17 +1,15 @@
-// Intersection Observer: Module werden sichtbar, wenn man scrollt
-const observerOptions = {
-    threshold: 0.1 // Löst aus, wenn 10% des Elements sichtbar sind
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
+document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll('.card');
+    
+    // Einfacher Staggered Animation Effekt beim Laden
+    cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, index * 100); // Jede Karte kommt 100ms später
     });
-}, observerOptions);
-
-// Alle Elemente mit der Klasse .fade-in beobachten
-document.querySelectorAll('.fade-in').forEach(el => {
-    observer.observe(el);
 });
