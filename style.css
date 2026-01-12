@@ -157,3 +157,46 @@ footer { text-align: center; padding: 60px; color: #444; font-size: 0.8rem; }
         grid-column: span 1; /* Auf dem Handy volle Breite der einen Spalte */
     }
 }
+
+/* Container für die geteilte Karte */
+.no-padding {
+    padding: 0 !important;
+}
+
+.split-container {
+    display: flex;
+    flex-direction: row;
+    min-height: 350px;
+    height: 100%;
+}
+
+.split-text {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.split-map {
+    flex: 1;
+    min-height: 300px;
+    background: #222;
+    /* Dark Mode Filter für die Karte (optional) */
+    filter: grayscale(0.2) invert(0.9) hue-rotate(180deg);
+}
+
+/* Responsiv: Auf Handys untereinander stapeln */
+@media (max-width: 800px) {
+    .split-container {
+        flex-direction: column;
+    }
+    .split-text {
+        order: 1;
+        padding: 30px;
+    }
+    .split-map {
+        order: 2;
+        min-height: 250px;
+    }
+}
