@@ -88,6 +88,7 @@ header {
 .task-list li { margin-bottom: 8px; font-size: 0.9rem; }
 .task-list i { margin-right: 8px; color: rgba(255,255,255,0.5); }
 .pill { background: #222; padding: 4px 10px; border-radius: 8px; font-size: 0.8rem; margin-right: 5px; border: 1px solid #333; }
+.pill-gap { margin-top: 5px; margin-bottom: 5px; display: inline-block; }
 footer { text-align: center; padding: 60px; color: #444; font-size: 0.8rem; }
 
 /* Mobile */
