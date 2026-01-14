@@ -233,7 +233,6 @@ footer { text-align: center; padding: 60px; color: #444; font-size: 0.8rem; }
     border-radius: 12px;
     overflow: hidden;
     background: linear-gradient(180deg, transparent 0%, rgba(10,10,11,0.04) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.02);
     transition: max-height 0.35s ease, background 0.25s ease, box-shadow 0.25s ease;
     max-height: 36px; /* collapsed height */
     box-shadow: none;
@@ -293,12 +292,8 @@ footer { text-align: center; padding: 60px; color: #444; font-size: 0.8rem; }
     }
 }
 
-/* Override für das Impressum: entfernt großen Footer-Abstand */
 footer.impressum {
     padding: 8px 12px;
     margin-top: 6px;  
     border-radius: 12px;
 }
-
-/* Falls body-bottom noch zu viel Platz macht, optional anpassen:
-   body { padding: 40px 20px 20px; } */
