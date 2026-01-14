@@ -227,13 +227,9 @@ footer { text-align: center; padding: 60px; color: #444; font-size: 0.8rem; }
     text-decoration: none;
 }
 
-/* --------------------------
-   Impressum (inline at bottom of page inside main-wrapper)
-   collapsed by default and blends with background;
-   expands on hover/focus to reveal content
-   -------------------------- */
+/* impressum */
 .impressum {
-    margin-top: var(--gap);
+    margin-top: 2px;
     border-radius: 12px;
     overflow: hidden;
     background: linear-gradient(180deg, transparent 0%, rgba(10,10,11,0.04) 100%);
@@ -269,7 +265,7 @@ footer { text-align: center; padding: 60px; color: #444; font-size: 0.8rem; }
 /* expand on hover or keyboard focus (stays inside document flow) */
 .impressum:hover,
 .impressum:focus-within {
-    max-height: 220px;
+    max-height: 200px;
     background: linear-gradient(180deg, rgba(10,10,11,0.02) 0%, rgba(16,16,18,0.6) 100%);
     box-shadow: 0 8px 24px rgba(0,0,0,0.4);
 }
@@ -296,3 +292,13 @@ footer { text-align: center; padding: 60px; color: #444; font-size: 0.8rem; }
         max-height: 180px;
     }
 }
+
+/* Override für das Impressum: entfernt großen Footer-Abstand */
+footer.impressum {
+    padding: 8px 12px; /* statt 60px global */
+    margin-top: 6px;   /* Abstand zur letzten Karte feinjustieren */
+    border-radius: 12px;
+}
+
+/* Falls body-bottom noch zu viel Platz macht, optional anpassen:
+   body { padding: 40px 20px 20px; } */
