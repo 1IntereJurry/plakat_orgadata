@@ -221,3 +221,8 @@ footer { text-align: center; padding: 60px; color: #444; font-size: 0.8rem; }
 .link {
     color: var(--primary-orange);
 }
+
+.link-muted {
+    color: var(--text-white);
+    text-decoration: none;
+}
