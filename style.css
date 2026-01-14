@@ -295,8 +295,8 @@ footer { text-align: center; padding: 60px; color: #444; font-size: 0.8rem; }
 
 /* Override für das Impressum: entfernt großen Footer-Abstand */
 footer.impressum {
-    padding: 8px 12px; /* statt 60px global */
-    margin-top: 6px;   /* Abstand zur letzten Karte feinjustieren */
+    padding: 8px 12px;
+    margin-top: 6px;  
     border-radius: 12px;
 }
 
