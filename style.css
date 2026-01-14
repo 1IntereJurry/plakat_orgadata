@@ -226,3 +226,73 @@ footer { text-align: center; padding: 60px; color: #444; font-size: 0.8rem; }
     color: var(--text-white);
     text-decoration: none;
 }
+
+/* --------------------------
+   Impressum (inline at bottom of page inside main-wrapper)
+   collapsed by default and blends with background;
+   expands on hover/focus to reveal content
+   -------------------------- */
+.impressum {
+    margin-top: var(--gap);
+    border-radius: 12px;
+    overflow: hidden;
+    background: linear-gradient(180deg, transparent 0%, rgba(10,10,11,0.04) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    transition: max-height 0.35s ease, background 0.25s ease, box-shadow 0.25s ease;
+    max-height: 36px; /* collapsed height */
+    box-shadow: none;
+    display: block;
+}
+
+/* visible bar that remains when collapsed */
+.impressum-bar {
+    padding: 8px 16px;
+    color: rgba(255,255,255,0.08); /* very muted to blend with background */
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+}
+
+/* hidden content until hover/focus */
+.impressum-content {
+    padding: 12px 16px 18px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+    height: auto;
+}
+
+/* expand on hover or keyboard focus (stays inside document flow) */
+.impressum:hover,
+.impressum:focus-within {
+    max-height: 220px;
+    background: linear-gradient(180deg, rgba(10,10,11,0.02) 0%, rgba(16,16,18,0.6) 100%);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.impressum:hover .impressum-bar,
+.impressum:focus-within .impressum-bar {
+    color: var(--primary-orange);
+}
+
+.impressum:hover .impressum-content,
+.impressum:focus-within .impressum-content {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* small screens: adjust spacing */
+@media (max-width: 600px) {
+    .impressum {
+        max-height: 34px;
+    }
+    .impressum:hover,
+    .impressum:focus-within {
+        max-height: 180px;
+    }
+}
