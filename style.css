@@ -2,6 +2,8 @@
     --bg-body: #0a0a0b;
     --bg-card: #161618;
     --primary-orange: #ff8c00;
+    --forterro-blue: #0077C8;
+    --forterro-yellow: #FFD200;
     --text-white: #ffffff;
     --text-muted: #94949b;
     --radius: 28px;
@@ -298,3 +300,15 @@ footer.impressum {
     border-radius: 12px;
 }
 
+/* Styles for forterro information */
+.forterro-boarder {
+    border: 1px solid rgba(0, 119, 200, 0.45);
+}
+.forterro-boarder .tag {
+    background: rgba(255, 210, 0, 0.08);
+    color: var(--forterro-yellow);
+    border: 1px solid rgba(255, 210, 0, 0.12);
+}
+.forterro-boarder .card-content h3.forterro-blue {
+    color: var(--forterro-blue);
+}
